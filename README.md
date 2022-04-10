@@ -2,10 +2,10 @@
 The project contains the obligatory tasks (Rest, security with JWT)
 
 > ## WARNING
-> - The project was created in order to learn Java EE
+> - The project was created in order to learn Java EE. M
 >  - repositories were required, we didn't connect to the database, so JPA was not needed.
-> - many things could be done better e.g. validation, dto, hateoas :) 
->
+> - many things could be (SHOULD BE) done better e.g. validation, dto, hateoas, no transactional :) 
+> - 
 
 Simple security with JWT:
 
