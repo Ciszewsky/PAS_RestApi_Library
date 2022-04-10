@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <security-role>
+        <role-name>CLIENT</role-name>
+    </security-role>
+    <security-role>
+        <role-name>ADMINUSER</role-name>
+    </security-role>
+    <security-role>
+        <role-name>ADMINRESOURCES</role-name>
+    </security-role>
+
+    <security-constraint>
+        <display-name>Secure</display-name>
+        <web-resource-collection>
+            <web-resource-name>Secure</web-resource-name>
+            <url-pattern>/*</url-pattern>
+        </web-resource-collection>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+    <security-constraint>
+        <display-name>UsersResourcesAdmin</display-name>
+        <web-resource-collection>
+            <web-resource-name>UsersResourcesAdmin</web-resource-name>
+            <url-pattern>/api/users/*</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+            <http-method>PUT</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>ADMINUSER</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+    <security-constraint>
+        <display-name>UsersResources</display-name>
+        <web-resource-collection>
+            <web-resource-name>UsersResources</web-resource-name>
+            <url-pattern>/api/users/*</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>PUT</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>ADMINRESOURCES</role-name>
+            <role-name>CLIENT</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+    <security-constraint>
+        <display-name>UsersResourcesEdit</display-name>
+        <web-resource-collection>
+            <web-resource-name>UsersResourcesEdit</web-resource-name>
+            <url-pattern>/api/users/*</url-pattern>
+            <http-method>PUT</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>ADMINRESOURCES</role-name>
+            <role-name>CLIENT</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+    <security-constraint>
+        <display-name>BooksResourcesAdmin</display-name>
+        <web-resource-collection>
+            <web-resource-name>BooksResourcesAdmin</web-resource-name>
+            <url-pattern>/api/books/*</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+            <http-method>PUT</http-method>
+            <http-method>DELETE</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>ADMINRESOURCES</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+    <security-constraint>
+        <display-name>BooksResources</display-name>
+        <web-resource-collection>
+            <web-resource-name>BooksResources</web-resource-name>
+            <url-pattern>/api/books/*</url-pattern>
+            <http-method>GET</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>CLIENT</role-name>
+            <role-name>ADMINUSER</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+
+
+    <security-constraint>
+        <display-name>RentsResources</display-name>
+        <web-resource-collection>
+            <web-resource-name>ClientRents</web-resource-name>
+            <url-pattern>/api/rents/*</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+            <http-method>PUT</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>CLIENT</role-name>
+            <role-name>ADMINUSER</role-name>
+            <role-name>ADMINRESOURCES</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+    <security-constraint>
+        <display-name>RentsResourcesAdmin</display-name>
+        <web-resource-collection>
+            <web-resource-name>ClientRents</web-resource-name>
+            <url-pattern>/api/rents/*</url-pattern>
+            <http-method>PUT</http-method>
+            <http-method>DELETE</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>ADMINRESOURCES</role-name>
+            <role-name>ADMINUSER</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+</web-app>
