@@ -1,12 +1,12 @@
 # PAS_RestApi_Library
-The project contains the obligatory tasks (Rest, security with JWT)
 
 > ## WARNING
-> - The project was created in order to learn Java EE. M
->  - repositories were required, we didn't connect to the database, so JPA was not needed.
+> - The project contains only the obligatory tasks (Rest, security with JWT), was created in order to learn Java EE.
+> - repositories were required, we didn't connect to the database, so JPA was not needed.
 > - many things could be (SHOULD BE) done better e.g. validation, dto, hateoas, no transactional :) 
 
 
+<br />
 Simple security with JWT:
 
 <img src="https://user-images.githubusercontent.com/74160651/162637217-85d4eef3-bf33-47d8-a4a5-53212de31286.png" width=700 height="250">
